@@ -22,7 +22,7 @@ class game extends Component{
         front[i].style.webkitTransform="rotateY(0deg)"
         back[i].style.webkitTransform="rotateY(-180deg)"
       }
-    }, 1500)
+    }, 7000)
   }
 
   turnCard(e){
@@ -36,24 +36,27 @@ class game extends Component{
     if(e.target.parentNode.className === "front"){
       this.turnCard(e);
     }
+
+    // 랜더함수속 setState 같은 상태값 변경로직이 들어가면 안됨
     setTimeout(() => {
-      this.props.onChangeMode(`clicked`,1,
+      this.props.onChangeMode(`clicked` ,1,
       e.target.parentNode.parentNode.id,
-      e.target.parentNode.parentNode.children[1].children[0].alt)
+      e.target.parentNode.parentNode.children[1].children[0].alt
+      )
     }, 1500);
   }
 
   render(){
 
     return (
-      <div>
+      <div className="container">
 
       {this.id.map((id)=> (
         <div className="cardContainer" key={id} id={this.id[id]}
            onClick={(e) => this.turnOnCard(e)}>
         
           <div className="front">
-           <img src="./img/front.jpg" alt=""/>
+           <img src="./img/front.png" alt=""/>
           </div>
 
           <div className="back">
