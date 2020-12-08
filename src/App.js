@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Game from './contents/game';
+import Resultgame from './contents/resultgame';
 
 class App extends Component{
 
@@ -9,6 +10,12 @@ class App extends Component{
     this.setState({
       mode:_mode,
       count:(this.state.count+_count)
+    });
+  }
+
+  Result = (_mode) =>{
+    this.setState({
+      mode:_mode
     });
   }
 
@@ -24,7 +31,6 @@ class App extends Component{
   }
 
   render(){
-    
     if(this.state.mode === 'clicked' &&
     this.state.count === 2){
       if(this.state.name[0] !== this.state.name[1]){
@@ -38,7 +44,6 @@ class App extends Component{
       document.getElementById(this.state.reverseId[1]).childNodes[1]
       .style.webkitTransform = "rotateY(-180deg)";
       }
-      // else{}
 
       this.setState({
         mode:'wait',
@@ -47,13 +52,22 @@ class App extends Component{
         name:[]
       })
     }
-    return (
+
+    if(this.state.mode === "wait"){
+      return (
       <div className="App">
-        <Game onChangeMode={this.ChangeMode}
-        ></Game>
+        <Resultgame Result={this.Result}></Resultgame>
       </div>
-    );
+      )
+    }else{
+      return (
+      <div className="App">
+        <Game onChangeMode={this.ChangeMode}/>
+      </div>
+      )
+    }
   }
+
 }
 
 export default App;

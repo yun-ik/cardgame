@@ -47,26 +47,26 @@ class game extends Component{
   }
 
   render(){
-
-    return (
-      <div className="container">
-
-      {this.id.map((id)=> (
-        <div className="cardContainer" key={id} id={this.id[id]}
-           onClick={(e) => this.turnOnCard(e)}>
-        
-          <div className="front">
-           <img src="./img/front.png" alt=""/>
+      return (
+        <div className="container">
+  
+        {this.id.map((id)=> (
+          <div className="cardContainer" key={id} id={this.id[id]}
+             onClick={(e) => this.turnOnCard(e)}>
+          
+            <div className="front">
+             <img src="./img/front.png" alt=""/>
+            </div>
+  
+            <div className="back">
+             <img src={this.imgUrl[id]} alt={this.name[id]}/>
+            </div>
+  
           </div>
-
-          <div className="back">
-           <img src={this.imgUrl[id]} alt={this.name[id]}/>
-          </div>
-
+        ))}
         </div>
-      ))}
-      </div>
-    );
+      );
+
   }
 }
 
