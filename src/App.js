@@ -53,19 +53,24 @@ class App extends Component{
       })
     }
 
-    if(this.state.mode === "wait"){
-      return (
-      <div className="App">
-        <Resultgame Result={this.Result}></Resultgame>
-      </div>
-      )
-    }else{
-      return (
+    // if(this.state.mode === "wait"){
+    //   return (
+    //   <div className="App">
+    //     <Resultgame Result={this.Result}></Resultgame>
+    //   </div>
+    //   )
+    // }else{
+    //   return (
+    //   <div className="App">
+    //     <Game onChangeMode={this.ChangeMode}/>
+    //   </div>
+    //   )
+    // }
+    return (
       <div className="App">
         <Game onChangeMode={this.ChangeMode}/>
       </div>
       )
-    }
   }
 
 }
